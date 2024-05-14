@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Validation Form</title>
+</head>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #9300a9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #d79ef5;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 80);
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        button[type="submit"] {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #9e04c5;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 80);
+            color: #ffffff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #9e04c5;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 80);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter a Secret Phrase to Proceed</h2>
+        <form id="secretForm" onsubmit="validateSecret(event)">
+            <label for="secret">Secret Phrase:</label>
+            <input type="text" id="secret" name="secret">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function validateSecret(event) {
+            event.preventDefault(); // Prevent form submission
+            const secretInput = document.getElementById('secret').value;
+            const secretPhrase = 'open sesame'; // Change this to your desired secret phrase
+
+            if (secretInput === secretPhrase) {
+                window.location.href = 'next_page.html'; // Redirect to the next page
+            } else {
+                alert('Incorrect secret phrase. Try again.'); // Show error message
+            }
+        }
+    </script>
+</body>
+</html>
